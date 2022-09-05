@@ -31,6 +31,9 @@ class Game {
         QuestionManager.shared.get { (questions) in
             self.questions = questions
             self.state = .ongoing
+            let name = Notification.Name(rawValue: "QuestionsLoaded")
+            let notification = Notification(name: name)
+            NotificationCenter.default.post(notification)
         }
     }
 

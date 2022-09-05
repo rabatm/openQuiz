@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E00E95CC28C625D700C61697 /* QuestionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E00E95CB28C625D700C61697 /* QuestionView.swift */; };
 		E01685FB28B8C14B00F7DF15 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01685FA28B8C14B00F7DF15 /* AppDelegate.swift */; };
 		E01685FD28B8C14B00F7DF15 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01685FC28B8C14B00F7DF15 /* SceneDelegate.swift */; };
 		E01685FF28B8C14B00F7DF15 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E01685FE28B8C14B00F7DF15 /* ViewController.swift */; };
@@ -20,6 +21,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E00E95CB28C625D700C61697 /* QuestionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = QuestionView.swift; sourceTree = "<group>"; };
 		E01685F728B8C14B00F7DF15 /* Quizz.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Quizz.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E01685FA28B8C14B00F7DF15 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E01685FC28B8C14B00F7DF15 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -94,6 +96,7 @@
 			isa = PBXGroup;
 			children = (
 				E016860028B8C14B00F7DF15 /* Main.storyboard */,
+				E00E95CB28C625D700C61697 /* QuestionView.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -186,6 +189,7 @@
 				E01685FF28B8C14B00F7DF15 /* ViewController.swift in Sources */,
 				E06416F228B8DBB80088086F /* Game.swift in Sources */,
 				E016861528B8D78200F7DF15 /* Question.swift in Sources */,
+				E00E95CC28C625D700C61697 /* QuestionView.swift in Sources */,
 				E01685FB28B8C14B00F7DF15 /* AppDelegate.swift in Sources */,
 				E01685FD28B8C14B00F7DF15 /* SceneDelegate.swift in Sources */,
 				E06416F428B9066C0088086F /* QuestionManager.swift in Sources */,
