@@ -9,7 +9,7 @@ import Foundation
 
 class Game {
     var score = 0
-
+    
     private var questions = [Question]()
     private var currentIndex = 0
 
@@ -37,11 +37,14 @@ class Game {
         }
     }
 
-    func answerCurrentQuestion(with answer: Bool) {
+    func answerCurrentQuestion(with answer: Bool) -> Bool {
+        var resultat = false
         if (currentQuestion.isCorrect && answer) || (!currentQuestion.isCorrect && !answer) {
             score += 1
+            resultat = true
         }
         goToNextQuestion()
+        return resultat
     }
 
     private func goToNextQuestion() {

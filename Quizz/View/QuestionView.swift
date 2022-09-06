@@ -11,6 +11,7 @@ class QuestionView: UIView {
     
     @IBOutlet private var label: UILabel!
     
+
     @IBOutlet private var icon: UIImageView!
 
     enum Style {

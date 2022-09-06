@@ -2,17 +2,17 @@ import UIKit
 
 class ViewController: UIViewController {
     @IBOutlet weak var newGameButton: UIButton!
+    @IBOutlet weak var resultLbl: UILabel!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionView: QuestionView!
-
+    
     var game = Game()
 
     override func viewDidLoad() {
         super.viewDidLoad()
         let name = Notification.Name(rawValue: "QuestionsLoaded")
         NotificationCenter.default.addObserver(self, selector: #selector(questionsLoaded), name: name, object: nil)
-
         startNewGame()
 
         let panGestureRecognizer = UIPanGestureRecognizer(target: self, action: #selector(dragQuestionView(_:)))
@@ -30,8 +30,7 @@ class ViewController: UIViewController {
         questionView.title = "Loading..."
         questionView.style = .standard
 
-        scoreLabel.text = "0 / 10"
-
+        scoreLabel.text = "Ton Score : 0 / 10"
         game.refresh()
     }
 
@@ -74,16 +73,30 @@ class ViewController: UIViewController {
     }
 
     private func answerQuestion() {
+        
+        func updateResult(_ resulat:Bool)
+        {
+            resultLbl.text = "PERDU"
+            resultLbl.textColor=UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
+            if (resulat) {
+                resultLbl.text = "GAGNÉ"
+                resultLbl.textColor=UIColor(red: 0/255.0, green: 255/255.0, blue: 0/255.0, alpha: 1)
+            }
+            
+        }
+        resultLbl.text = "PERDU"
+
         switch questionView.style {
         case .correct:
-            game.answerCurrentQuestion(with: true)
+            updateResult(game.answerCurrentQuestion(with: true))
         case .incorrect:
-            game.answerCurrentQuestion(with: false)
+            resultLbl.textColor=UIColor(red: 255/255.0, green: 0/255.0, blue: 0/255.0, alpha: 1)
+            updateResult(game.answerCurrentQuestion(with: false))
         case .standard:
             break
         }
 
-        scoreLabel.text = "\(game.score) / 10"
+        scoreLabel.text = "Ton Score : \(game.score) / 10"
 
         let screenWidth = UIScreen.main.bounds.width
         var translationTransform: CGAffineTransform
@@ -112,7 +125,13 @@ class ViewController: UIViewController {
         case .ongoing:
             questionView.title = game.currentQuestion.title
         case .over:
-            questionView.title = "Game Over"
+            if game.score >= 5 {
+            questionView.title = "Partie finie Félicitation tu as gagné 💪"
+            }
+            else {
+                questionView.title = "Partie finie tu as perdu 🥲 "
+
+            }
         }
 
         UIView.animate(withDuration: 0.4, delay: 0.0, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.5, options: [], animations: {
