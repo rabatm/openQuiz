@@ -14,7 +14,7 @@ class QuestionView: UIView {
     @IBOutlet private var icon: UIImageView!
 
     enum Style {
-        case correct, incorrect, standart
+        case correct, incorrect, standard
     }
     
     var title = "" {
@@ -33,13 +33,13 @@ class QuestionView: UIView {
             backgroundColor = UIColor(red: 243/255.0, green: 135/255.0, blue: 148/255.0, alpha: 1)
             icon.image = UIImage(named: "Icon Error")
             icon.isHidden = false
-        case .standart:
+        case .standard:
             backgroundColor = UIColor(red: 191/255.0, green: 196/255.0, blue: 201/255.0, alpha: 1)
             icon.isHidden = true
         }
     }
     
-    var style: Style = .standart {
+    var style: Style = .standard {
         didSet {
                 setStyle(style)
         }
